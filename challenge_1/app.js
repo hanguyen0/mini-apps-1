@@ -6,7 +6,9 @@ let board = [firstRow, secondRow, thirdRow]
 let clicked = false;
 let announcement = document.querySelector('h2');
 let validBoard = [];
-let firstPlay = 'X';
+let col1 = 0;
+let col2 = 0;
+let col3 = 0;
 
 
 
@@ -43,12 +45,18 @@ board.forEach(row => {
       })
     });
   });
+
   if (winByRow.length === 3) {
     validBoard.push(winByRow);
   }
 
 
-  row.forEach((cell, idx )=> {
+  row.forEach((cell, idx) => {
+    // console.log(row[0])
+    if (row[0].textContent === 'X') {
+      col1++;
+      console.log('col1 ', col1)
+    }
     cell.addEventListener('click', (event) => {
       let target = event.target;
       //rules of Tic Tag Toe, make sure cell is empty before placing X or O
