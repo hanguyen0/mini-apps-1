@@ -26,33 +26,43 @@ let thirdRow = document.getElementById('third').querySelectorAll('td');
 
 let board = [firstRow, secondRow, thirdRow]
 let clicked = false;
-let winByCol = 0;
+let announcement = document.querySelector('h2');
+let validBoard = [];
+let winByRow;
 //checking for winner
 board.forEach(row => {
-  let winByRow = 0;
-
   //listen for click event each row
+  winByRow = '';
+  let player1 = 0;
+  let player2 = 0;
   row.forEach(cell => {
+
     cell.addEventListener('click', (event) => {
       //rules of Tic Tag Toe, make sure cell is empty before placing X or O
       if (event.target.innerHTML.length === 0) {
         if (!clicked) {
           event.target.innerHTML = 'X';
-          winByRow++;
-          winByCol++;
+          winByRow += 'X';
+          player1++;
+          console.log('player1', player1)
           console.log(winByRow)
           clicked = true;
         } else {
           event.target.innerHTML = 'O';
-          winByRow--;
-          winByCol++;
+          winByRow += 'O';
+          player2++;
+          console.log('player2', player2);
           console.log(winByRow)
           clicked = false;
         }
-        if (winByRow === 3) {
-          console.log('WInner is ...');
-        } else {
-          console.log('No winner...')
+        if (winByRow.length === 3) {
+          validBoard.push(winByRow);
+          console.log('valid board: ', validBoard);
+        }
+        if (player1 === 3) {
+          announcement.textContent = 'WInner is X';
+        } else if (player2 === 3) {
+          announcement.textContent = 'Winner is O';
         }
       }
     });
@@ -65,8 +75,8 @@ board.forEach(row => {
 
 
 
-checkRow = (row) => {
-  
+checkBoard = (board) => {
+
 }
 
 
@@ -74,3 +84,13 @@ checkRow = (row) => {
 
 
 //reset game:
+
+let reset = document.querySelector('button');
+reset.addEventListener('click', (e) => {
+  winByRow = '';
+  board.forEach(row => {
+    row.forEach(cell => {
+      cell.textContent = '';
+    })
+  });
+});
