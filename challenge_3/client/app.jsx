@@ -1,35 +1,35 @@
-
+import React from 'react';
 
 class Checkout extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { f1: false, f2: false, f3: false }
+        this.state = { f1: false }
         this.handleClick1 = this.handleClick1.bind(this);
-        this.handleClick2 = this.handleClick2.bind(this);
-        this.handleClick3 = this.handleClick3.bind(this);
+        // this.handleClick2 = this.handleClick2.bind(this);
+        // this.handleClick3 = this.handleClick3.bind(this);
     }
 
     handleClick1(e) {
         console.log(e);
         this.setState({ f1: !this.state.f1 });
     }
-    handleClick2(e) {
-        console.log(e);
-        this.setState({ f2: !this.state.f2 });
-    }
-    handleClick3(e) {
-        console.log(e);
-        this.setState({ f3: !this.state.f3 });
-    }
+    // handleClick2(e) {
+    //     console.log(e);
+    //     this.setState({ f2: !this.state.f2 });
+    // }
+    // handleClick3(e) {
+    //     console.log(e);
+    //     this.setState({ f3: !this.state.f3 });
+    // }
 
     render() {
-        const { f1, f2, f3 } = this.state;
+        const { f1 } = this.state;
         let form;
-        let start = <button onClick={this.handleClick1}>Checkout</button>;
+        let start = 'Checkout';
         if (f1) {
             form = <Form1 />
-            start = <button onClick={this.handleClick2}>Next</button>;
-        } 
+            start = 'Next';
+        }
         // else if (f2) {
         //     form = <Form2 />
         //     start = <button onClick={this.handleClick3}>Next</button>;
@@ -39,7 +39,7 @@ class Checkout extends React.Component {
         // }
         return (
             <div>
-                {start}
+                <button onClick={this.handleClick1}>{start}</button>;
                 {form}
             </div>
         )
@@ -60,43 +60,43 @@ const Form1 = (props) => (
     </form>
 )
 
-const Form2 = (props) => (
-    <form action="">
-        <label htmlFor="">Address 1
-            <input type="text" name="address_1" id="" />
-        </label>
-        <label htmlFor="">Address 1
-            <input type="text" name="address_2" id="" />
-        </label>
-        <label htmlFor="">City
-            <input type="text" name="city" id="" />
-        </label>
-        <label htmlFor="">State
-            <input type="text" name="state" id="" />
-        </label>
-        <label htmlFor="">Zipcode
-            <input type="text" name="zipcode" />
-        </label>
-    </form>
-)
+// const Form2 = (props) => (
+//     <form action="">
+//         <label htmlFor="">Address 1
+//             <input type="text" name="address_1" id="" />
+//         </label>
+//         <label htmlFor="">Address 1
+//             <input type="text" name="address_2" id="" />
+//         </label>
+//         <label htmlFor="">City
+//             <input type="text" name="city" id="" />
+//         </label>
+//         <label htmlFor="">State
+//             <input type="text" name="state" id="" />
+//         </label>
+//         <label htmlFor="">Zipcode
+//             <input type="text" name="zipcode" />
+//         </label>
+//     </form>
+// )
 
-const Form3 = (props) => (
-    <form action="">
-        <label htmlFor=""> Credit Card
-            <input type="text" name="credit card" id="" />
-        </label>
-        <label htmlFor="">Expiration Date
-        <input type="text" name="address_2" id="" />
-        </label>
-        <label htmlFor=""> CVV
-        <input type="text" name="city" id="" />
-        </label>
-        <label htmlFor="">Billing Zipcode
-        <input type="text" name="state" id="" />
-        </label>
+// const Form3 = (props) => (
+//     <form action="">
+//         <label htmlFor=""> Credit Card
+//             <input type="text" name="credit card" id="" />
+//         </label>
+//         <label htmlFor="">Expiration Date
+//         <input type="text" name="address_2" id="" />
+//         </label>
+//         <label htmlFor=""> CVV
+//         <input type="text" name="city" id="" />
+//         </label>
+//         <label htmlFor="">Billing Zipcode
+//         <input type="text" name="state" id="" />
+//         </label>
 
-    </form>
-)
+//     </form>
+// )
 ReactDOM.render(
     <Checkout />,
     document.getElementById('app')
