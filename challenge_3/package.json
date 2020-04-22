@@ -1,0 +1,27 @@
+{
+  "name": "multistep_checkout",
+  "version": "1.0.0",
+  "description": "checkout process using react, epxress and mongodb",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "watch": "npx babel client --out-dir public --presets @babel/preset-react --source-maps inline --watch"
+  },
+  "keywords": [
+    "checkout"
+  ],
+  "author": "ha",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.9.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-react": "^7.9.4"
+  }
+}
